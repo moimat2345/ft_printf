@@ -1,11 +1,17 @@
 <div align="center">
+  <img height="200" src="https://raw.githubusercontent.com/Benjamin-poisson/My_image_bank/refs/heads/main/printf.png"  />
+</div>
 
-# 🖨️ ft_printf - My Custom Printf
+# ft_printf - Custom Printf Recreation
+
+The `ft_printf` project consists of recreating the standard `printf()` function in C. This project is an excellent introduction to **variadic functions** and handling variable arguments.
+
+## Status
+<div align="center">
 
 ![42 Bangkok](https://img.shields.io/badge/42-Bangkok-000000?style=for-the-badge&logo=42&logoColor=white)
 ![C](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)
 ![Norminette](https://img.shields.io/badge/Norminette-passing-success?style=for-the-badge)
-![Lines](https://img.shields.io/badge/Lines-273-blue?style=for-the-badge)
 
 [![Français](https://img.shields.io/badge/🇫🇷_Français-Cliquez_ici-blue?style=for-the-badge)](README.md)
 
@@ -13,36 +19,51 @@
 
 ---
 
-## 📝 Overview
+## Overview
+
+The goal is to create your own version of `printf()`, capable of handling different data types and conversions. This exercise improves understanding of variadic functions and allows practice in writing extensible and robust code.
+
+## Useful Resources
+
+- [Notion's Oceano - ft_printf](https://suspectedoceano.notion.site/printf-06cba643d653410bb03417532ca71c25)
+- [Ft_printf Tester Francinette](https://github.com/xicodomingues/francinette)
+
+---
+
+## 📋 Mandatory Part
 
 <table>
-<tr>
-<td>
-
-**ft_printf** is a recreation of the libc `printf()` function. This project introduces **variadic functions** (`va_list`, `va_start`, `va_arg`, `va_end`) in C.
-
-✨ **Simple and efficient** implementation in **273 lines**
-
-**Supported conversions:** 9 basic formats
-**Approach:** Recursive for numeric conversions
-**Compilation:** `-Wall -Wextra -Werror`
-
-</td>
-<td width="300">
-
-```
-📊 Statistics
-
-Files:        8 .c
-Lines:        273
-Conversions:  9
-Bonus:        No
-Archive:      libftprintf.a
-```
-
-</td>
-</tr>
+  <tr>
+    <th>Program name</th>
+    <td>libftprintf.a</td>
+  </tr>
+  <tr>
+    <th>Turn in files</th>
+    <td>Makefile, *.h, *.c</td>
+  </tr>
+  <tr>
+    <th>Makefile</th>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <th>External functs.</th>
+    <td>malloc, free, write, va_start, va_arg, va_copy, va_end</td>
+  </tr>
+  <tr>
+    <th>Libft authorized</th>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <th>Description</th>
+    <td>Implement your own version of the printf() function from libc.</td>
+  </tr>
 </table>
+
+### Important Rules
+- Global variables are forbidden.
+- Subfunctions should be defined as `static`.
+- All .c files must compile with the flags `-Wall -Wextra -Werror`.
+- Use `ar` to create the library; `libtool` is not permitted.
 
 ---
 
@@ -66,216 +87,35 @@ ft_printf/
 
 ---
 
-## 🎯 Supported Conversions
+## 🎯 Implemented Conversions
 
-<div align="center">
+The `ft_printf` function supports the following conversions:
+
+<details open>
+<summary><b>Click to see conversions</b></summary>
 
 | Format | Type | Description | Example |
-|:------:|------|-------------|---------|
-| ![](https://img.shields.io/badge/-%25c-blue?style=flat-square) | `char` | Single character | `ft_printf("%c", 'A')` → `A` |
-| ![](https://img.shields.io/badge/-%25s-blue?style=flat-square) | `char*` | String | `ft_printf("%s", "Hello")` → `Hello` |
-| ![](https://img.shields.io/badge/-%25d-green?style=flat-square) | `int` | Signed decimal | `ft_printf("%d", -42)` → `-42` |
-| ![](https://img.shields.io/badge/-%25i-green?style=flat-square) | `int` | Integer (= %d) | `ft_printf("%i", 42)` → `42` |
-| ![](https://img.shields.io/badge/-%25u-green?style=flat-square) | `unsigned int` | Unsigned number | `ft_printf("%u", 42)` → `42` |
-| ![](https://img.shields.io/badge/-%25x-orange?style=flat-square) | `unsigned int` | Lowercase hexadecimal | `ft_printf("%x", 255)` → `ff` |
-| ![](https://img.shields.io/badge/-%25X-orange?style=flat-square) | `unsigned int` | Uppercase hexadecimal | `ft_printf("%X", 255)` → `FF` |
-| ![](https://img.shields.io/badge/-%25p-red?style=flat-square) | `void*` | Pointer (0x...) | `ft_printf("%p", ptr)` → `0x7ffe...` |
-| ![](https://img.shields.io/badge/-%25%25-purple?style=flat-square) | N/A | Literal % character | `ft_printf("%%")` → `%` |
+|:------:|:-----|:------------|:--------|
+| **%c** | `char` | Print a character | `ft_printf("%c", 'A')` → `A` |
+| **%s** | `char*` | Print a string | `ft_printf("%s", "Hello")` → `Hello` |
+| **%p** | `void*` | Print a pointer (0x...) | `ft_printf("%p", ptr)` → `0x7ffe...` |
+| **%d** | `int` | Print signed decimal | `ft_printf("%d", -42)` → `-42` |
+| **%i** | `int` | Print integer (= %d) | `ft_printf("%i", 42)` → `42` |
+| **%u** | `unsigned int` | Print unsigned number | `ft_printf("%u", 42)` → `42` |
+| **%x** | `unsigned int` | Lowercase hexadecimal | `ft_printf("%x", 255)` → `ff` |
+| **%X** | `unsigned int` | Uppercase hexadecimal | `ft_printf("%X", 255)` → `FF` |
+| **%%** | N/A | Print % character | `ft_printf("%%")` → `%` |
 
-</div>
-
----
-
-## ⚙️ How it Works
-
-### Code Architecture
-
-```c
-int ft_printf(const char *str, ...)
-{
-    va_list args;
-    int printed = 0;
-
-    va_start(args, str);
-    while (*str)
-    {
-        if (*str == '%')
-            printed += ft_format(str, args);  // Dispatch
-        else
-            printed += ft_putchar(*str);      // Print normal
-        str++;
-    }
-    va_end(args);
-    return (printed);  // Number of characters printed
-}
-```
-
-### Format Dispatching
-
-```c
-int ft_format(const char *str, va_list args)
-{
-    if (str[1] == 'c')
-        return (ft_putchar(va_arg(args, int)));
-    else if (str[1] == 's')
-        return (ft_putstr(va_arg(args, char *)));
-    else if (str[1] == 'd' || str[1] == 'i')
-        return (ft_putnbr(va_arg(args, int)));
-    else if (str[1] == 'u')
-        return (ft_putunbr(va_arg(args, unsigned int)));
-    else if (str[1] == 'x')
-        return (ft_puthex(va_arg(args, unsigned int), 0));
-    else if (str[1] == 'X')
-        return (ft_puthex(va_arg(args, unsigned int), 1));
-    else if (str[1] == 'p')
-        return (ft_putpointer(va_arg(args, void *)));
-    else if (str[1] == '%')
-        return (ft_putchar('%'));
-    return (0);
-}
-```
+</details>
 
 ---
 
-## 💡 Implementation Details
+## 🛠️ Compilation and Usage
 
-<table>
-<tr>
-<td width="50%">
-
-### 🔹 Recursive Approach
-
-All numeric conversions use **recursion**:
-
-```c
-int ft_putnbr(int n)
-{
-    long nb = n;
-    int printed = 0;
-
-    if (nb < 0)
-    {
-        printed += ft_putchar('-');
-        nb = -nb;
-    }
-    if (nb >= 10)
-        printed += ft_putnbr(nb / 10); // Recursion
-    printed += ft_putchar((nb % 10) + '0');
-    return (printed);
-}
-```
-
-**Advantages:**
-- Elegant and compact code
-- No buffer needed
-- No length calculation
-
-</td>
-<td width="50%">
-
-### 🔹 NULL Handling
-
-**NULL strings (`%s`):**
-```c
-int ft_putstr(char *s)
-{
-    if (!s)
-        return (ft_putstr("(null)"));
-    // ...
-}
-```
-
-**NULL pointers (`%p`):**
-```c
-int ft_putpointer(void *ptr)
-{
-    if (!ptr)
-        return (ft_putstr("(nil)"));
-    // Display 0x...
-}
-```
-
-**Result:**
-- `ft_printf("%s", NULL)` → `(null)`
-- `ft_printf("%p", NULL)` → `(nil)`
-
-</td>
-</tr>
-
-<tr>
-<td>
-
-### 🔹 Hexadecimal
-
-**Two variants:**
-
-```c
-int ft_puthex(unsigned long long num, int uppercase)
-{
-    char *base;
-
-    if (uppercase)
-        base = "0123456789ABCDEF";  // %X
-    else
-        base = "0123456789abcdef";  // %x
-
-    if (num >= 16)
-        ft_puthex(num / 16, uppercase);
-    ft_putchar(base[num % 16]);
-}
-```
-
-**Direct indexing:** `base[num % 16]`
-
-</td>
-<td>
-
-### 🔹 Pointers
-
-**Format:**
-```c
-int ft_putpointer(void *ptr)
-{
-    int printed = 0;
-
-    if (!ptr)
-        return (ft_putstr("(nil)"));
-
-    printed += ft_putstr("0x");  // Prefix
-    printed += ft_puthex((unsigned long long)ptr, 0);
-    return (printed);
-}
-```
-
-**`unsigned long long` cast:** 32/64-bit portability
-
-</td>
-</tr>
-</table>
-
----
-
-## 🔢 Return Value
-
-**All functions return the number of characters printed:**
-
-```c
-int count;
-
-count = ft_printf("Hello");           // → 5
-count = ft_printf("%d", 42);          // → 2
-count = ft_printf("%s %d", "Age:", 25); // → 7 ("Age: 25")
-count = ft_printf("%p", NULL);        // → 5 ("(nil)")
-```
-
-If `NULL` is passed as format → returns `-1`
-
----
-
-## 🛠️ Compilation
+### Compile the Library
 
 ```bash
-# Compile the library
+# Compile
 make
 
 # Clean object files
@@ -288,31 +128,7 @@ make fclean
 make re
 ```
 
-**Makefile:**
-```makefile
-CC = cc
-FLAG = -Wall -Wextra -Werror
-
-SRCS = ft_printf.c \
-       utils/ft_putchar.c \
-       utils/ft_puthex.c \
-       utils/ft_putnbr.c \
-       utils/ft_putpointer.c \
-       utils/ft_putstr.c \
-       utils/ft_putunsigned.c \
-       utils/ft_putunbr.c
-
-NAMELIB = libftprintf.a
-
-${NAMELIB}: ${OBJ}
-    ar rcs ${NAMELIB} ${OBJ}
-```
-
----
-
-## 💻 Usage
-
-### Complete Example
+### Use in Your Code
 
 ```c
 #include "ft_printf.h"
@@ -323,14 +139,15 @@ int main(void)
     char *name = "Alice";
     void *ptr = &age;
 
+    // Usage examples
     ft_printf("Name: %s\n", name);          // Name: Alice
     ft_printf("Age: %d years\n", age);      // Age: 25 years
     ft_printf("Hex: %x / %X\n", 255, 255);  // Hex: ff / FF
     ft_printf("Pointer: %p\n", ptr);        // Pointer: 0x7ffe...
-    ft_printf("Unsigned: %u\n", -1);        // Unsigned: 4294967295
+    ft_printf("Unsigned: %u\n", 42);        // Unsigned: 42
     ft_printf("Percentage: 50%%\n");        // Percentage: 50%
 
-    // Returns number of characters
+    // Returns number of characters printed
     int count = ft_printf("Test");          // count = 4
 
     return (0);
@@ -346,58 +163,12 @@ gcc main.c -L. -lftprintf -o program
 
 ---
 
-## ⚠️ Limitations (No Bonus)
-
-This implementation **DOES NOT support**:
-
-❌ Flags (`-`, `0`, `+`, ` `, `#`)
-❌ Field width (`%10d`, `%-5s`)
-❌ Precision (`%.2f`, `%.5s`)
-❌ Modifiers (`%ld`, `%lld`, `%hd`)
-❌ Advanced formats (`%f`, `%e`, `%g`, `%n`)
-
-This is a **basic** version with the 9 essential conversions.
-
----
-
-## 📋 Function Details
+## 💡 Implementation Highlights
 
 <details>
-<summary><b>📁 utils/ft_putchar.c</b></summary>
+<summary><b>🔹 Recursive Approach</b></summary>
 
-```c
-int ft_putchar(char c)
-{
-    return (write(1, &c, 1));
-}
-```
-
-**Simple:** writes 1 character to stdout, returns 1
-
-</details>
-
-<details>
-<summary><b>📁 utils/ft_putstr.c</b></summary>
-
-```c
-int ft_putstr(char *s)
-{
-    int printed = 0;
-
-    if (!s)
-        return (ft_putstr("(null)"));
-    while (*s)
-        printed += ft_putchar(*s++);
-    return (printed);
-}
-```
-
-**NULL handling:** prints `(null)` if `s == NULL`
-
-</details>
-
-<details>
-<summary><b>📁 utils/ft_putnbr.c</b></summary>
+All numeric conversions use recursion for elegant and compact code:
 
 ```c
 int ft_putnbr(int n)
@@ -417,94 +188,76 @@ int ft_putnbr(int n)
 }
 ```
 
-**Long cast:** avoids overflow with INT_MIN
-**Recursive:** divides by 10 until single digit
+</details>
+
+<details>
+<summary><b>🔹 NULL Handling</b></summary>
+
+NULL strings and NULL pointers are handled correctly:
+
+```c
+ft_printf("%s", NULL)    // → (null)
+ft_printf("%p", NULL)    // → (nil)
+```
 
 </details>
 
 <details>
-<summary><b>📁 utils/ft_putunbr.c</b></summary>
+<summary><b>🔹 Return Value</b></summary>
+
+Like `printf()`, the function returns the number of characters printed:
 
 ```c
-int ft_putunbr(unsigned int n)
-{
-    int printed = 0;
-
-    if (n >= 10)
-        printed += ft_putunbr(n / 10);
-    printed += ft_putchar((n % 10) + '0');
-    return (printed);
-}
+int count = ft_printf("Hello World");  // count = 11
 ```
-
-**Unsigned:** identical to `ft_putnbr` but without negative handling
 
 </details>
 
-<details>
-<summary><b>📁 utils/ft_puthex.c</b></summary>
+---
 
-```c
-int ft_puthex(unsigned long long num, int uppercase)
-{
-    char *base;
-    int printed = 0;
+## ⚠️ Limitations
 
-    if (uppercase)
-        base = "0123456789ABCDEF";
-    else
-        base = "0123456789abcdef";
+This implementation **DOES NOT support** bonuses:
 
-    if (num >= 16)
-        printed += ft_puthex(num / 16, uppercase);
-    printed += ft_putchar(base[num % 16]);
-    return (printed);
-}
-```
+- ❌ Flags (`-`, `0`, `+`, ` `, `#`)
+- ❌ Field width (`%10d`, `%-5s`)
+- ❌ Precision (`%.2f`, `%.5s`)
+- ❌ Size modifiers (`%ld`, `%lld`)
+- ❌ Advanced formats (`%f`, `%e`, `%g`)
 
-**Uppercase parameter:** 0 for lowercase, 1 for uppercase
-**Recursive:** divides by 16 (hexadecimal base)
+This is a **basic** version with the 9 essential conversions.
 
-</details>
+---
 
-<details>
-<summary><b>📁 utils/ft_putpointer.c</b></summary>
+## 📊 Statistics
 
-```c
-int ft_putpointer(void *ptr)
-{
-    int printed = 0;
+<div align="center">
 
-    if (!ptr)
-        return (ft_putstr("(nil)"));
+| Metric | Value |
+|:------:|:-----:|
+| **Files** | 8 .c |
+| **Lines** | ~273 |
+| **Conversions** | 9 |
+| **Bonus** | No |
 
-    printed += ft_putstr("0x");
-    printed += ft_puthex((unsigned long long)ptr, 0);
-    return (printed);
-}
-```
+</div>
 
-**Format:** `0x` + address in lowercase hexadecimal
-**NULL:** prints `(nil)` instead of `0x0`
+---
 
-</details>
+## 🚨 Disclaimer
+
+**🇬🇧 This project has an educational purpose and you should under no circumstances copy and paste.**
+**Cheat is bad. Don't cheat.**
+
+**🇫🇷 Ce projet a un but éducatif et vous ne devez en aucun cas faire du copier-coller.**
+**Tricher c'est mal. Ne trichez pas.**
 
 ---
 
 <div align="center">
 
-## 📊 Summary
-
-| Metric | Value |
-|:------:|:-----:|
-| ![](https://img.shields.io/badge/Lines-273-blue?style=flat-square) | ![](https://img.shields.io/badge/Files-8_.c-informational?style=flat-square) |
-| ![](https://img.shields.io/badge/Conversions-9-blueviolet?style=flat-square) | ![](https://img.shields.io/badge/Bonus-No-red?style=flat-square) |
-| ![](https://img.shields.io/badge/Recursive-✓-success?style=flat-square) | ![](https://img.shields.io/badge/NULL_safe-✓-success?style=flat-square) |
-
----
-
 **Made with ❤️ for 42 Bangkok**
 
-[![Back to top](https://img.shields.io/badge/⬆-Back_to_top-red?style=for-the-badge)](#-ft_printf---my-custom-printf)
+[![Back to top](https://img.shields.io/badge/⬆-Back_to_top-red?style=for-the-badge)](#ft_printf---custom-printf-recreation)
 
 </div>
